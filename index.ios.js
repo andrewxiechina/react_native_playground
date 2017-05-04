@@ -1,65 +1,49 @@
-class MyHomeScreen extends React.Component {
-  static navigationOptions = {
-    tabBarLabel: 'Home',
-    // Note: By default the icon is only shown on iOS. Search the showIcon option below.
-    tabBarIcon: ({ tintColor }) => (
-      <Image
-        source={require('./chats-icon.png')}
-        style={[styles.icon, {tintColor: tintColor}]}
-      />
-    ),
-  };
+import React, { Component } from 'react';
+import {
+  AppRegistry,
+  Text,
+  View,
+  StatusBar,
+  Platform,
+} from 'react-native';
+import { StackNavigator } from 'react-navigation';
+import Login from './components/Login';
+import Main from './components/Main';
+import Pokedex from './components/Pokedex';
 
-  render() {
-    return (
-      <Button
-        onPress={() => this.props.navigation.navigate('Notifications')}
-        title="Go to notifications"
-      />
-    );
-  }
-}
-
-class MyNotificationsScreen extends React.Component {
-  static navigationOptions = {
-    tabBarLabel: 'Notifications',
-    tabBarIcon: ({ tintColor }) => (
-      <Image
-        source={require('./notif-icon.png')}
-        style={[styles.icon, {tintColor: tintColor}]}
-      />
-    ),
-  };
-
-  render() {
-    return (
-      <Button
-        onPress={() => this.props.navigation.goBack()}
-        title="Go back home"
-      />
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  icon: {
-    width: 26,
-    height: 26,
+const Routes = {
+  Main: {
+    screen: Main,
   },
-});
-
-const MyApp = TabNavigator({
-  Home: {
-    screen: MyHomeScreen,
+  Pokedex: {
+    screen: Pokedex,
   },
-  Notifications: {
-    screen: MyNotificationsScreen,
+  // Pokemons: {
+  //
+  // },
+  // Pokemon: {
+  //
+  // },
+  // Pokemart: {
+  //
+  // },
+  // Items: {
+  //
+  // },
+  // Item: {
+  //
+  // }
+};
+
+const AppNavigator = StackNavigator({
+  ...Routes,
+  Login: {
+    screen: Login,
   },
 }, {
-  tabBarOptions: {
-    activeTintColor: '#e91e63',
-  },
+  initialRouteName: 'Login',
+  headerMode: 'none',
+  mode: Platform.OS === 'ios' ? 'modal' : 'card',
 });
 
-
-AppRegistry.registerComponent('react_native_playground', () => MyApp);
+AppRegistry.registerComponent('react_native_playground', () => AppNavigator);
