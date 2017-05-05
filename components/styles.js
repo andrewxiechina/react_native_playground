@@ -61,6 +61,9 @@ const styles = StyleSheet.create({
   bgPrimary: {
     backgroundColor: '#de737b',
   },
+  bgSecondary: {
+    backgroundColor: '#ef8389'
+  },
   c0: {
     color: '#000',
   },

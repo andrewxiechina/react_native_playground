@@ -10,6 +10,7 @@ import {
   Alert,
 } from 'react-native';
 import styles from './styles';
+import NavExtendable from './NavExtendable'
 
 export default class Nav extends Component {
   constructor(props){
@@ -29,36 +30,7 @@ export default class Nav extends Component {
   render(){
   	return(
       <View>
-    		<View style={[styles.row, styles.bgPrimary]}>
-          <TouchableOpacity onPress ={() => this.toggleNav()}  style={[styles.btnBlock, styles.bgPrimary, {alignItems: 'flex-start'}]}>
-            <Text style={[styles.h2, styles.cf, {marginLeft: 10}]}>#</Text>
-          </TouchableOpacity>
-
-          <Text style={[styles.h3, styles.cf, {marginLeft: 10}]}>ACE TRAINER ALICE</Text>
-
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('Main')}  style={[styles.btnBlock, styles.bgPrimary, {alignItems: 'flex-end'}]}>
-            <Image source={require('../images/trainer.png')} resizeMode='contain' style={{width:30, height:30}}/>
-    		  </TouchableOpacity>
-
-        </View>
-        {this.state.showNav ? (
-          <View style={[styles.row, styles.bgPrimary]}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')} style={[styles.btnBlock, styles.bgPrimary]}>
-              <Text style={[styles.h4, styles.cf]}>POKEDEX</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')} style={[styles.btnBlock, styles.bgPrimary]}>
-              <Text style={[styles.h4, styles.cf]}>POKEDEX</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')} style={[styles.btnBlock, styles.bgPrimary]}>
-              <Text style={[styles.h4, styles.cf]}>POKEDEX</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')} style={[styles.btnBlock, styles.bgPrimary]}>
-              <Text style={[styles.h4, styles.cf]}>POKEDEX</Text>
-            </TouchableOpacity>
-          </View>
-        ) : (
-          null
-        )}
+        <NavExtendable navigation={this.props.navigation} />
       </View>
   		)
   }
