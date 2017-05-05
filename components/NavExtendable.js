@@ -43,7 +43,7 @@ export default class Nav extends Component {
         </View>
         {this.state.showNav ? (
           <View style={[styles.row, styles.bgPrimary]}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')} style={[styles.btnBlock, styles.bgPrimary]}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Pokedex')} style={[styles.btnBlock, styles.bgPrimary]}>
               <Text style={[styles.h4, styles.cf]}>POKEDEX</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Login')} style={[styles.btnBlock, styles.bgPrimary]}>

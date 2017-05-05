@@ -41,7 +41,7 @@ const AppNavigator = StackNavigator({
     screen: Login,
   },
 }, {
-  initialRouteName: 'Main',
+  initialRouteName: 'Pokedex',
   headerMode: 'none',
   mode: Platform.OS === 'ios' ? 'modal' : 'card',
 });
