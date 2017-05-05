@@ -9,46 +9,57 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
-  Icon,
 } from 'react-native';
+import styles from './styles';
 
 export default class Login extends Component {
   render() {
     return (
-        <Image source={require("../images/background.jpg")} style={{flex: 1, justifyContent: 'space-between', alignItems: 'center' }} resizeMode="stretch" >
+        <Image source={require("../images/background.jpg")} resizeMode="stretch" style={[styles.column, {paddingTop: 0, paddingBottom: 30, flex: 1}]}>
 
           <Image source={require("../images/logo.png")} style={{width: 220,}} resizeMode="contain"/>
 
-          <View style={{width:310, height:250, margin:10, borderColor:'#d3d3d3'}}>
-            {/* Log in */}
-            <Text style={{alignSelf:'flex-end', fontSize:13, margin:5, color:'#333', fontStyle:'italic', fontWeight:'200', backgroundColor:'rgba(0,0,0,0)'}}>REGISTER</Text>
-            <TextInput placeholder = "USERNAME" placeholderTextColor = "#fff" style = {styles.textInput}/>
-            <TextInput placeholder = "PASSWORD" placeholderTextColor = "#fff" style = {styles.textInput}/>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Main') } style={{backgroundColor:'rgba(226,39,44, 0.5)', flex:1, justifyContent:'center', alignItems:'center'}}>
-              <Text style={{color:'#fff', fontSize:12, fontWeight:'700'}}>LOG IN</Text>
-            </TouchableOpacity>
+          <View style={[styles.container, {height:250, marginBottom:30,}]}>
+
+            <Text style={[styles.h4, styles.a5, {alignSelf: 'flex-end'}]}>REGISTER</Text>
             {/* Log in */}
 
+            <View style={[styles.column, {height: 150}]}>
+              <TextInput placeholder = "USERNAME" placeholderTextColor = "white" style={[styles.btnBlock, styles.h4, styles.ba5]}/>
+              <TextInput placeholder = "PASSWORD" placeholderTextColor = "white" style={[styles.btnBlock, styles.h4, styles.ba5]}/>
+              <View style={[styles.row]}>
+                <TouchableOpacity style={[styles.btnBlock, styles.bgPrimary, {padding: 12}]} onPress={() => this.props.navigation.navigate('Main')}>
+                  <Text style={[styles.h4, {color: 'white'}]}>LOG IN</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+            {/* Log in */}
+
+
+
+
             {/* -- Or Connect With -- */}
-            <View style={styles.row}>
+            <View style={[styles.row, {marginTop: 10, marginBottom: 5}]}>
               <View style={styles.line} />
-              <View style={{flex:1, margin:5}}><Text style={{fontSize:10, fontWeight:'600', color:'#444', backgroundColor:'rgba(0,0,0,0)'}}>OR CONNECT WITH</Text></View>
+              <View style={{margin: 5}}>
+                <Text style={[styles.h4, styles.a5 ]}>OR CONNECT WITH</Text>
+              </View>
               <View style = {styles.line} />
             </View>
             {/* -- Or Connect With -- */}
 
             {/* | facebook | twitter | google| */}
             <View style={styles.row}>
-              <TouchableOpacity style = {styles.social} >
-                <Text style={{color:'#fff', fontSize:11, fontWeight:'600'}}>facebook</Text>
+              <TouchableOpacity style={[styles.btn, styles.ba5, {margin: 8}]}>
+                <Text style={[styles.h4, styles.bold, {color: 'white'}]}>facebook</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity style = {styles.social} >
-                <Text style={{color:'#fff', fontSize:11, fontWeight:'600'}}>twitter</Text>
+              <TouchableOpacity style={[styles.btn, styles.ba5, {margin: 8}]}>
+                <Text style={[styles.h4, styles.bold, {color: 'white'}]}>twitter</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity style = {styles.social} >
-                <Text style={{color:'#fff', fontSize:11, fontWeight:'600'}}>google</Text>
+              <TouchableOpacity style={[styles.btn, styles.ba5, {margin: 8}]}>
+                <Text style={[styles.h4, {color: 'white'}]}>google</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -57,11 +68,3 @@ export default class Login extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  textInput: {flex:1, backgroundColor:'#rgba(0,0,0,0.3)', padding:10, color:'#fff', fontSize:12},
-  line:{flex:1, height:2, backgroundColor:'rgba(0,0,0,0.2)' },
-  row:{flex:1, flexDirection:'row', alignItems:'center'},
-  social:{flex:1, borderRadius:2, backgroundColor:'#rgba(0,0,0,0.6)', flexDirection:'row', margin:8, alignItems:'center', justifyContent:'center', padding:5}
-
-});
