@@ -8,11 +8,14 @@ const styles = StyleSheet.create({
     alignItems:'center',
     flexDirection:'row',
     justifyContent:'space-between',
+    backgroundColor: 'transparent',
   },
   column: {
     flexDirection:'column',
     alignItems:'center',
     justifyContent:'space-between',
+    backgroundColor: 'transparent',
+
   },
   container: {
     flexDirection:'column',
@@ -20,12 +23,16 @@ const styles = StyleSheet.create({
     justifyContent:'space-between',
     padding: 15,
     flex: 1,
+    backgroundColor: 'transparent',
+
   },
   containerRow: {
     flexDirection:'row',
     alignItems:'center',
     justifyContent:'space-between',
     padding: 15,
+    backgroundColor: 'transparent',
+
   },
   line:{
     flex:1,

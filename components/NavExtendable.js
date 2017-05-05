@@ -10,7 +10,6 @@ import {
   Alert,
 } from 'react-native';
 import styles from './styles';
-import NavExtendable from './NavExtendable'
 
 export default class Nav extends Component {
   constructor(props){

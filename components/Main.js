@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import styles from './styles';
 import NavExtendable from './NavExtendable'
-
+import Footer from './Footer'
 var badge1 = require('../images/badge1U.png')
 var badge2 = require('../images/badge2U.png')
 var badge3 = require('../images/badge3U.png')
@@ -83,10 +83,10 @@ export default class Nav extends Component {
 
   render(){
   	return(
-      <View>
+      <View style={{flexDirection: 'column', justifyContent: "space-between"}}>
         <NavExtendable navigation={this.props.navigation} />
         <View style={[styles.row, styles.bgSecondary, ]}>
-          <View style={[styles.container, {flexDirection: 'row'}]}>
+          <View style={[styles.container, {flexDirection: 'row', paddingTop: 20, paddingBottom: 20}]}>
             <Image source={require('../images/mystic.png')}  resizeMode='contain' style={[{height: 30, width: 30, margin: 10,}]} />
             <Image source={require('../images/profile.png')} resizeMode='contain' style={[{height: 180, width: 140}]} />
             <View style={[styles.row]}>
@@ -96,26 +96,30 @@ export default class Nav extends Component {
           </View>
         </View>
 
-        <View style={[styles.containerRow]} >
-            <Image source={badge1} resizeMode="contain" style={{height:30, width:30, margin:10}} />
-            <Image source={badge2} resizeMode="contain" style={{height:30, width:30, margin:10}} />
-            <Image source={badge3} resizeMode="contain" style={{height:30, width:30, margin:10}} />
-            <Image source={badge4} resizeMode="contain" style={{height:30, width:30, margin:10}} />
-            <Image source={badge5} resizeMode="contain" style={{height:30, width:30, margin:10}} />
-            <Image source={badge6} resizeMode="contain" style={{height:30, width:30, margin:10}} />
-            <Image source={badge7} resizeMode="contain" style={{height:30, width:30, margin:10}} />
-            <Image source={badge8} resizeMode="contain" style={{height:30, width:30, margin:10}} />
-        </View>
+        <View style={[styles.column, {justifyContent: 'space-around', padding: 15,}]}>
 
-        <View style={[styles.row]}>
-          <TouchableOpacity style={[styles.btnOutline, {padding: 12, margin: 15, marginTop: 0, marginBottom: 5}]} onPress={() => this.props.navigation.navigate('Main')}>
-            <Text style={[styles.h3, styles.c7]}>CURRENT PARTY</Text>
-          </TouchableOpacity>
-        </View>
+          <View style={[styles.row, {justifyContent: 'space-around'}]} >
+              <Image source={badge1} resizeMode="contain" style={{height:30, width:30, margin:10}} />
+              <Image source={badge2} resizeMode="contain" style={{height:30, width:30, margin:10}} />
+              <Image source={badge3} resizeMode="contain" style={{height:30, width:30, margin:10}} />
+              <Image source={badge4} resizeMode="contain" style={{height:30, width:30, margin:10}} />
+              <Image source={badge5} resizeMode="contain" style={{height:30, width:30, margin:10}} />
+              <Image source={badge6} resizeMode="contain" style={{height:30, width:30, margin:10}} />
+              <Image source={badge7} resizeMode="contain" style={{height:30, width:30, margin:10}} />
+              <Image source={badge8} resizeMode="contain" style={{height:30, width:30, margin:10}} />
+          </View>
 
-        <View style={[styles.containerRow]}>
-          <ListView dataSource={this.state.dataSource} renderRow={(rowData) => this.renderPokemon(rowData)} contentContainerStyle={[styles.row]}/>
+          <View style={[styles.row]}>
+            <TouchableOpacity style={[styles.btnOutline, {padding: 12, margin: 15, marginTop: 0, marginBottom: 5}]} onPress={() => this.props.navigation.navigate('Main')}>
+              <Text style={[styles.h3, styles.c7]}>CURRENT PARTY</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={[styles.row]}>
+            <ListView dataSource={this.state.dataSource} renderRow={(rowData) => this.renderPokemon(rowData)} contentContainerStyle={[styles.row]}/>
+          </View>
         </View>
+        <Footer />
       </View>
   		)
   }
