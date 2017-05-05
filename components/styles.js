@@ -8,21 +8,24 @@ const styles = StyleSheet.create({
     alignItems:'center',
     flexDirection:'row',
     justifyContent:'space-between',
-    backgroundColor:'transparent',
   },
   column: {
     flexDirection:'column',
     alignItems:'center',
     justifyContent:'space-between',
-    backgroundColor:'transparent',
   },
   container: {
     flexDirection:'column',
     alignItems:'center',
     justifyContent:'space-between',
     padding: 15,
-    backgroundColor:'transparent',
     flex: 1,
+  },
+  containerRow: {
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'space-between',
+    padding: 15,
   },
   line:{
     flex:1,
@@ -50,7 +53,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 5,
   },
-
+  btnOutline: {
+    flex: 1,
+    borderRadius: 2,
+    borderWidth: 1,
+    borderColor: '#bbb',
+    backgroundColor: 'transparent',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 5,
+  },
   /* Border */
   border: {
     borderWidth: 1,
